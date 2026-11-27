@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="email=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="renderer" content="webkit">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    	<title>[简历]陈中杭-全栈开发工程师/杭州</title>
+    	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/typo.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <style type="text/css">
+            aside ul li a{
+              text-align: center;  
+            }
+        </style>
+        <script>
+            var sign = "/";
+            window.onload=function(){
+                var marks = document.getElementsByClassName("markYearAndMonth");
+                for (var i = marks.length - 1; i >= 0; i--) {
+                    var startTime = marks[i].getAttribute("startTime");
+                    var endTime = marks[i].getAttribute("endTime");
+                    if(!endTime){
+                        endTime = getNowFormatDate();
+                    }
+                    getYearAndMonth(startTime,endTime,marks[i])
+                };
+               
+            }
+            function getNowFormatDate() {
+                var date = new Date();
+                var seperator1 = sign;
+                //var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+                        //+ " " + date.getHours() + seperator2 + date.getMinutes()
+                       // + seperator2 + date.getSeconds();
+                return currentdate;
+            }
+            function getYearAndMonth(beginTime,endTime,ele){
+                var beginDate = beginTime.split(sign);
+                var endDate = endTime.split(sign);
+                var bMonth = parseInt(beginDate[0]) * 12 + parseInt(beginDate[1]);
+                var eMonth = parseInt(endDate[0]) * 12 + parseInt(endDate[1]);
+                var totalMonth = Math.abs(eMonth - bMonth);
+                var year = Math.floor(totalMonth/12);
+                var month = totalMonth%12;
+                ele.innerHTML =  "("+year+"年"+month+"个月)";
+                    
+            } 
+            function loading(){
+                document.getElementsByClassName('avatar')[0].style.display = 'block';
+                document.getElementsByClassName('loading')[0].style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+
+        <header class="header"></header>
+        
+        <article class="container">
+            <section class="side">
+                <!-- 个人肖像 -->
+                <section class="me">
+                    <section class="portrait">
+                        <div class="loading">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <!-- 头像照片 -->
+                        <img class="avatar" src="assets/images/avatar.jpg" onload="loading()">
+                    </section>
+
+                    <h1 class="name">陈中杭</h1>
+                    <h4 class="info-job">全栈开发工程师 / 杭州</h4>
+
+                </section>
+
+                <!-- 基本信息 -->
+                <section class="profile info-unit">
+                    <h2><i class="fa fa-user" aria-hidden="true"></i>基本信息</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <label>个人信息</label>
+                            <span>陈中杭 / 男 / 91年</span>
+                        </li>
+                        <li>
+                            <label>英语水平</label>
+                            <span>CET-4</span>
+                        </li>
+                    </ul>
+                </section>
+                <section class="stack info-unit">
+                    <h2><i class="fa fa-bars" aria-hidden="true"></i>期望</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <label>工作地</label>
+                            <span>杭州</span>
+                        </li>
+                        <!--<li>
+                            <label>薪资</label>
+                            <span>30~35k左右</span>
+                        </li>-->
+                    </ul>
+                </section>
+                <!-- 联系方式 -->
+                <section class="contact info-unit">
+                    <h2><i class="fa fa-phone" aria-hidden="true"></i>联系方式</h2>
+                    <hr/>
+                    <ul>
+                        <!--<li><label>手机</label><a href="tel:19906721114" target="_blank">19906721114</a></li>-->
+                        <li><label>微信</label><a href="javascript:void()" target="_blank">TensorGroot</a></li>
+                        <li><label>邮件</label><a href="mailto:948993066@qq.com">948993066@qq.com</a></li>
+                    </ul>
+                </section>
+
+                <!-- 技能点 -->
+                <section class="skill info-unit">
+                    <h2><i class="fa fa-code" aria-hidden="true"></i>技能点</h2>
+                    <hr/>
+                    <ul>
+                        <li><label>Java</label><progress value="90" max="100"></progress></li>
+                        <li><label>阿里中间件(HSF/MetaQ/Diamond/TDDL)</label><progress value="90" max="100"></progress></li>
+                        <li><label>MySQL开发</label><progress value="85" max="100"></progress></li>
+                        <li><label>前端/微前端(React/icestark)</label><progress value="80" max="100"></progress></li>
+                        <li><label>C/C++</label><progress value="75" max="100"></progress></li>
+                        <li><label>Go/Python</label><progress value="70" max="100"></progress></li>
+                        <li><label>AI工程化(Agent/RAG/MCP/Skill)</label><progress value="85" max="100"></progress></li>
+                    </ul>
+                </section>
+
+                <!-- 技术栈 -->
+                <!--
+                <div class="stack info-unit">
+                    <h2><i class="fa fa-code" aria-hidden="true"></i>其他</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <label>工作地</label>
+                            <span>杭州</span>
+                        </li>
+                        <li>
+                            <label>薪资</label>
+                            <span>25k左右</span>
+                        </li>
+                        </li>
+                    </ul>
+                </div> 
+                -->
+            </section>
+
+            <section class="main">
+                
+                <!-- 工作经历 -->
+                <section class="work info-unit">
+                    <h2><i class="fa fa-shopping-bag" aria-hidden="true"></i>工作经历</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <h3>   
+                                <span>阿里巴巴-天猫技术部<mark class="markYearAndMonth" startTime="2018/06">（x年x个月）</mark> - 高级开发工程师</span>
+                                <time>2018/06 – 至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li><mark>现阶段（天猫优品 · 结算/激励域）</mark>：负责优品结算/激励域核心系统后端与双端微前端研发，主导 <b>AI 工程化、国补结算、底价体系、供应商结算</b> 四条主线，支撑国补政策落地与结算资金安全 <br/><br/>
+                                <b>① AI 工程化（主导 · 核心亮点）</b>：从 0 到 1 建设结算域 AI 能力，落地 AI 数字人、AI 配置平台、AI 稽核平台三个生产级产品（详见下方「重点项目 · AI 工程化」）。把业务答疑、结算配置生产、资金稽核三类原本依赖研发排期的工作，转为 AI 自助答复与自动生成，需求交付周期由「天」级压缩到「小时」级 <br/>
+                                <b>② 国补结算</b>：负责国补（国家补贴）订单独立价格与佣金体系在结算侧的工程落地——国补商家识别、以旧换新佣金结算、国补开票与对账口径，并在底价计算中隔离国补订单，保障国补补贴准确兑现且不污染普通订单口径 <br/>
+                                <b>③ 底价体系（国补底价 + 云仓底价）</b>：主导商品底价从「人工表格维护」升级为「产品化平台」：提报 → 多级审核 → 生效 → 结算写回全链路，内置跨月涨幅风控与金额合法性校验，直接约束结算补贴口径、防止资金超发；其中云仓底价独立负责前后端全链路，沉淀交付级技术方案与生产上线 checklist <br/>
+                                <b>④ 供应商结算</b>：打通提报 → 生效 → 结算写回 → 财务对账全链路，统一在线/离线两套金额与账期口径，支撑账期对账 <br/>
+                                技术栈：Pandora Boot / HSF / TDDL / Diamond / MetaQ / ODPS / React 微前端 / Python Agent <br/><br/>
+                                <mark>商家平台</mark>：主要对接行业与商家，团队主要业务包含竞争雷达，招商入驻，规模化运营，对内运营主要包含红蓝海商品、盘货能力及产品化建设，打通数据层与工程一体化，利用数据平台化的思维，拉平垂直行业的复杂需求，使用配置化加中台配置化，使业务流程，数据节点可以配置，完成海量数据挖掘，品类挖掘，商品标签，规则圈选，商品分层，前端投放策略，人群匹配，拉动整体大盘增量 <br/> 
+                                亮点：期间荣获项目不破不立奖，受服饰、快消、家装行业业务方一致好评 <br/>
+                                <mark>品牌营销</mark>： 期间负责新享、表哥、小黑盒、测款、样品等多个业务平台 <br/>
+                                在新享一期赛马新商家沉淀通用活动卡片，供给超3.5w的商品，并复用超3个业务以上，并在通用会话锚点网关能力超50+业务接入 <br/> 
+                                解决表哥稳定性及吞吐量的问题，性能及稳定性在升级期间提升巨大，切换数据引擎后，线上无任何舆情，直观表现性能提升33倍，沉淀fbi灵动插件，已支持20+个业务场景，实现基础数据计算平台,目前已运行190+个任务 <br/> 
+                                样品平台任务目前支持24+个打标任务，效率提升6倍之多 <br/> 
+                                小黑盒支持新品福利引流，回访量提升31%，业务在短时间内接入需求并完成上线 <br/> 
+                                在业务高度压力的情况下，完成测款卖点测试的上线，并在短期接受小黑盒并解决线上遗留问题，并在新享资源匮乏的时支持新享的业务，符合阿里的此时此刻，非我莫属的态度<br/> 
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>   
+                                <span> 博彦科技<mark class="markYearAndMonth" startTime="2016/10" endTime="2018/06">（x年x个月）</mark> - 资深java开发工程师</span>
+                                <time>2016/10 - 2018/06</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li><mark>Java 开发</mark>，
+                                管理方面：系统架构设计等，期间负责招人面试工作 <br/>
+                                技术方面：对于dubbo、MySQL 高可用内核方面（minirds高可用开发）的开发，包括dubbo 内核版本升级
+                                ，Myrocks 内核开发（rocksDB引擎优化），tracing对接flink，同步到influxdb，利用grafana配置化图表分析能力，实现实时数据采集分析
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>   
+                                <span>贷齐乐<mark class="markYearAndMonth" startTime="2014/09" endTime="2016/10">（x年x个月）</mark> - 技术主管</span>
+                                <time>2014/09 – 2016/10</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>Java后台开发，App开发（管理团队核心开发11人左右）：
+                                    管理方面：主要技术规划、技术选型、团队管理、招聘评级、新同学培训员工一体化管理。<br/>
+                                    技术方面：公共组件模块抽离、开源框架选型定制重构、后台架构开发、APP开发
+                                </li>
+                            </ul>
+                        </li>  
+                    </ul>
+                </section>
+
+                <!-- 重点项目 · AI 工程化 -->
+                <section class="project info-unit">
+                    <h2><i class="fa fa-magic" aria-hidden="true"></i>重点项目 · AI 工程化（核心亮点）</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <h3>
+                                <span>结算域 AI 数字人 —— 业务自助答疑 + 研发全流程自动化</span>
+                                <time>2026/07 – 至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>定位：结算域唯一 AI 入口，钉钉侧直接承接业务与研发提问，同时驱动「编码 → 提交 → 部署 → 验证 → 归档」研发闭环</li>
+                                <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    <b>业务价值</b>：业务问题从「找研发排期、以天计」变为「钉钉提问、秒级自助答复」；研发侧重复性需求由 Agent 端到端交付 <br/>
+                                    <b>怎么做成的</b>：建成以代码为中心的分域业务知识库 + RAG 检索（约 2 万 chunks、分钟级增量更新），沉淀 14 个领域技能（库表直查、离线数仓、对账复算、工单、文档读写等） <br/>
+                                    <b>可控性</b>：治理红线 + 评测集回归 + 错误处理钩子自进化机制，保障 AI 在生产域可控、可回归、可追溯 <br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>优品结算 AI 配置平台 —— PRD 直接生成结算配置与计费代码</span>
+                                <time>2026/07 – 至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>定位：把结算「配置 + 计费代码」的生产方式由人工开发转为 AI 生成，存量结算引擎零改动</li>
+                                <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    <b>业务价值</b>：面向 6000+ 类、100+ HSF 接口的存量结算系统，新结算需求的配置交付从「周」级降至「小时」级，且配置与代码作为原子包产出、口径天然一致 <br/>
+                                    <b>怎么做成的</b>：四层知识库（数据字典 / 业务规则 / 新旧系统映射 / 86 篇 PRD 原文索引）驱动 Agent，产出「配置 + 计费脚本 + 单测」原子包 <br/>
+                                    <b>可控性</b>：质检 Agent 三级校验（合规 / 单测 / 历史数据回放）+ AI 自主权风险分级授权，高风险操作强制人审 + 灰度发布 <br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>结算 AI 稽核平台 —— 自然语言驱动的资金安全护栏</span>
+                                <time>2026/11 – 至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>定位：运营用自然语言说清「哪里可能算错钱」，平台自动转成比对规则、跑批出差异、闭环处置</li>
+                                <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    <b>业务价值</b>：业务 / 风控 / 财务可自助建稽核点、不再排数据开发；资金风险从「事后人肉对账」转为「每日自动盯防 + 超时自动升级」 <br/>
+                                    <b>怎么做成的</b>：自然语言 → 双源比对 SQL → 离线跑批 → 差异清单；风险点收敛为统一台账（等级 / 责任人 / 命中率 / 拦截金额），差异带 AI 归因与 SLA 工单流转 <br/>
+                                    <b>可控性</b>：AI 不直接改生产规则或写数据，产物一律人工确认 + 版本化发布；低置信度归因不出结论 <br/>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 教育经历 -->
+                <section class="edu info-unit">
+                    <h2><i class="fa fa-graduation-cap" aria-hidden="true"></i>教育经历</h2>
+                    <hr/>
+                    <ul>
+                        <li>
+                            <h3><span>浙江万里学院</span><time>2011/06 – 2015/06</time></h3>
+                            <p> <mark>电子信息科学与技术</mark>    本科  </p>
+                        </li>
+                    </ul>
+                </section>
+
+                 <!-- 自我评价 -->
+                <section class="work info-unit">
+                    <h2><i class="fa fa-pencil" aria-hidden="true"></i>自我评价/期望</h2>
+                    <hr/>
+                    <ul class="info-content">
+                        <li style="margin-bottom: auto">  深耕阿里中间件体系：HSF、MetaQ、Diamond、TDDL、Sentinel、Switch 等，具备大规模分布式系统的开发、排障与稳定性保障能力 </li>
+                        <li style="margin-bottom: auto">  熟练运用Spring Boot/Spring MVC及Java、JS、CSS进行Web全栈开发与性能优化 </li>
+                        <li style="margin-bottom: auto">  熟悉React微前端（icestark）架构，可独立完成中后台双端（小二端/商家端）页面研发与发布 </li>
+                        <li style="margin-bottom: auto">  熟练掌握dubbo源码，能够进行二次开发、问题排查、日常运维等 </li>
+                        <li style="margin-bottom: auto">  熟悉MyRocks代码，了解RocksDB源码，熟悉MySQL的搭建及其基本运维，具备ODPS大数据开发经验 </li>
+                        <li style="margin-bottom: auto">  熟练掌握Docker,Python,Go,Kubernetes（k8s）等使用 </li>
+                        <li style="margin-bottom: auto">  业务：深耕电商结算与价格域——国补结算、商品底价与多级审核、供应商返利结算、账期对账与资金安全，习惯对结果与资金口径负责 </li>
+                        <li style="margin-bottom: auto">  AI：主导 AI 数字人、AI 配置生成、AI 稽核三类生产级落地，掌握知识库 / RAG / Skill / MCP / Agent 治理与评测的完整方法论，擅长把 AI 转化为可度量的业务效率 </li>
+                        <li style="margin-bottom: auto">  英语专业四级 ，可以阅读各类英文文档，进行简单的英文交流 </li>
+                        <li style="margin-bottom: auto">  <span class="mark-txt">blog: <a href="http://blog.csdn.net/qq948993066/">http://blog.csdn.net/qq948993066/</a></span>  </li>
+                    </ul>
+                </section>
+
+                <!-- 项目经验 -->
+                <section class="project info-unit">
+                    <h2><i class="fa fa-terminal" aria-hidden="true"></i>个人项目</h2>
+                    <hr/>
+                    <ul>
+                        <!--<li>
+                            <h3>
+                                <span>淘系商家运营-（盘选系统）</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2018/7 –至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：java</li>
+                                <li>
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                   项目简介：淘宝1000w+、天猫30w+商家运营模式的沉淀、方法论的系统化，工程化，阿里招、选、盘、搭、投<br/>
+                                   主要在活动招商活动链路中的选、与盘中构建商业模型，使用系统化运营策略，利用算法、和大数据分析能力，赋能业务从
+                                   0到1的策略分析，策略调整、策略运营闭环产品搭建
+                                </li>
+                            </ul>
+                        </li>-->
+                        <li>
+                            <h3>
+                                <span>MyRocks引擎开发（MySQL源码开发）</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2017/9 –至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：C++</li>
+                                <li>
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                   项目简介：RocksDB 作为高速的k/v 组件，特别适合于MySQL集成，提升MySQL整体性能，主要负责MyRocks的功能开发，比如 k/v高低位压缩字节，encode all field null bit map，对MyRocks Handle底层开发，比较了解RocksDB源码，对sst 以及wal的处理流程比较清楚，封装docker自动化测试镜像，实现自动化测试，和innodb相比，rocksdb在存储上更节省，其他还支持MySQLparse（yacc）新增语法树分析特性<br/>
+                                </li>
+                                <!--
+                                <li>例如：比较熟悉mysql内核代码，可修改内核代码使其支持EQ_NULL</li>
+                                <li>
+                                    <img class="avatar" width="50%" src="assets/images/mysql_eq_null.jpg" onload="loading()"/>
+                                </li>
+                                -->
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>中间件容器化</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2017/9 –至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：python + docker</li>
+                                <li>
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                   项目简介：主要对diamond + dubbo + metaq + redis + tair + vipserver 等中间件应用做容器化处理，配置化基线（部分组件通过swarm部署），输出为专有云服务<br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>minirds应用开发</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2017/9 –至今</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：Python</li>
+                                <li>
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                   项目简介：mysql 高可用项目，基本组件包含aurora + master +slave，aurora通过vipserver动态切换主备，保证应用毫秒级响应<br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>k8s driver</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2017/05 –至今 </time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：python + go 语言开发</li>
+                                <li>
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    项目简介：容器化的解决方案：Docker k8s处理中间件，主要包含kubernetes扩容监听，扩容解决方案，资源监听，vm申请，整个体系交给k8s处理
+                                    轻量级方案：整个过程都swarm做资源销毁 ,vipserver负载注册，自动化完成的容器环境自举<br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>Dubbo 框架源码开发</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2016/10 –至今 </time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：Java + dubbo</li>
+                                <li>
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    项目简介：主要负责dubbo的核心功能开发、其他能力的扩展、bug定位等，对dubbo的源码非常了解。期间修复诸多内核升级，比如异步回调失败、支持异步泛化调用等。扩展protocol，实现rest-protocol接口调用、rpc统计接入，内核升级等<br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>伊维特电商平台</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2016/05 - 2016/10</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：Java 开发全栈</li>
+                                <li>
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    项目简介：类似淘宝、京东的多商家租户平台，技术点包含kafaka+springMvc+dubbo+dbproxy+hadoop，人群主要为本地化商家，解决本地中小商家的货源线上化、店铺交易数据化的问题，使中小本地化商家快速成长
+                                    <br/>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>靓号贷(前端+后端)</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2016/04 - 2016/05</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：Java 开发全栈</li>
+                                <li>
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    项目简介：独立完成后台(rails),iOS App，安卓开发，对自定义UI(双控点)组件编写，控件的编码，技术点包含即时通讯、消息推送等，主要采用REST API 调用，主要为用户实现贷款操作，下载: App Store 搜索靓号贷（国家已实行政策，app暂时下架，目前相关论坛还有一些用户反馈）
+                                    功能描述：主要是做本地化的小额贷款，是借款人可以极其简单的在线上完成借款，将所有的线下人肉审核风险，智能化通过产品事件，安全智能审核技术包含通讯录检测、运营商通话记录、身份证识别、换号策略风险识别
+                                    <br/>
+                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>已完成一个亿的融资
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <span>黑科技</span>
+                                <span class="link"><a href="#" target="_blank">Pro</a></span>
+                                <time>2015/12 - 2016/02</time>
+                            </h3>
+                            <ul class="info-content">
+                                <li>技术栈：后台（Java，JS），前端（CSS，JS，HTML）</li>
+                                <li>
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                    项目简介：主要获取中国电信，中国移动，联通通话记录提取征信维度数据,使用selenium+phantomjs完成对网站数据的爬取，由于phantomjs性能偏弱，无法分布式爬取，后续完成phantomjs的源码重构，利用JS hack 技术，判断图片（onload事件）加载事件，将图片转化为base64传输，得到被爬网站的cookie等加密信息，其他还包括对号码归属的撞库判断，完成运营商的智能选择<br/>
+                                <!--
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    [团队]与 1 位<br/>
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                    [贡献]分析项目需求，清洗并整理相关数据(扩展第三方知识组织系统和 Google trends 数据)，并用 <mark>D3.js</mark> 和 <mark>ECharts</mark> 进行图形化展示以及实现简易自动分析 功能<br/>
+                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    [效果]作品取得第二届共享杯国家级竞赛“特等奖”(1/1500)
+                                -->
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+
+            </section>
+        </article>
+
+        
+
+        <footer class="footer">
+            <p>© 2018 wds.文档最后更新时间为<time>2026年11月27日</time>.</p>
+        </footer>
+
+        <!-- 侧栏 -->
+        <aside>
+            <ul>
+                <li style="border-radius:10px 0 0 10px" ><a href="http://blog.csdn.net/qq948993066/" target="_blank">Blog</a></li>
+                <li style="border-radius:10px 0 0 10px" id="renderPdf" ><a href="javascript:void" target="_blank">Pdf</a></li>
+                <li style="border-radius:10px 0 0 10px" id="renderPdf" >
+                    <div><a href="javascript:void" target="_blank">微信</a></div>
+                    <div><img class="avatar" height="120px" src="assets/images/qrcode.png" onload="loading()"></div>
+                </li>    
+            </ul>
+        </aside>
+        <script type="text/javascript" src="./assets/js/html2canvas.js"></script>
+        <script type="text/javascript" src="./assets/js/jsPdf.debug.js"></script>
+        <script src="./assets/js/index.js"></script>
+        <script type="text/javascript">
+
+          var downPdf = document.getElementById("renderPdf");
+
+          downPdf.onclick = function() {
+              html2canvas(document.body, {
+                  onrendered:function(canvas) {
+
+                      var contentWidth = canvas.width;
+                      var contentHeight = canvas.height;
+
+                      //一页pdf显示html页面生成的canvas高度;
+                      var pageHeight = contentWidth / 595.28 * 841.89;
+                      //未生成pdf的html页面高度
+                      var leftHeight = contentHeight;
+                      //pdf页面偏移
+                      var position = 0;
+                      //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+                      var imgWidth = 555.28;
+                      var imgHeight = 555.28/contentWidth * contentHeight;
+
+                      var pageData = canvas.toDataURL('image/jpeg', 1.0);
+
+                      var pdf = new jsPDF('', 'pt', 'a4');
+                      //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+                      //当内容未超过pdf一页显示的范围，无需分页
+                      if (leftHeight < pageHeight) {
+                          pdf.addImage(pageData, 'JPEG', 20, 0, imgWidth, imgHeight );
+                      } else {
+                          while(leftHeight > 0) {
+                              pdf.addImage(pageData, 'JPEG', 20, position, imgWidth, imgHeight)
+                              leftHeight -= pageHeight;
+                              position -= 841.89;
+                              //避免添加空白页
+                              if(leftHeight > 0) {
+                                  pdf.addPage();
+                              }
+                          }
+                      }
+
+                      pdf.save('resume.pdf');
+                  }
+              });
+          }
+        </script>
+    </body>
+</html>
